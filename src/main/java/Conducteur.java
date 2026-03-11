@@ -12,7 +12,8 @@ public class Conducteur {
     }
 
     public void demarrerVoiture() {
-        if (estAdulte()) {
+        final boolean estAldulte = this.estAdulte();
+        if (estAldulte) {
             System.out.println(nom + " démarre la voiture.");
         } else {
             System.out.println("Le conducteur n'est pas assez âgé pour conduire.");
