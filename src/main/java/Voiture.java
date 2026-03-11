@@ -1,11 +1,11 @@
 public class Voiture {
     public static final int VALEUR_ACCELERATION = 10;
     public static final int VITESSE_MAX = 120;
-    private String modele;
-    private String couleur;
+    private final String modele;
+    private final String couleur;
     private int vitesse;
 
-    public Voiture(String model, String color) {
+    public Voiture(final String model, final String color) {
         this.modele = model;
         this.couleur = color;
         this.vitesse = 0;
