@@ -1,13 +1,13 @@
 public class Voiture {
-    public static final int VALEUR_ACCELERATION = 10;
-    public static final int VITESSE_MAX = 120;
-    private final String modele;
-    private final String couleur;
+    public static final int ACCELERATION_VALUE = 10;
+    public static final int MAX_SPEED = 120;
+    private final String model;
+    private final String color;
     private int vitesse;
 
-    public Voiture(final String model, final String color) {
-        this.modele = model;
-        this.couleur = color;
+    public Voiture(final String carModel, final String carColor) {
+        this.model = carModel;
+        this.color = carColor;
         this.vitesse = 0;
     }
 
@@ -16,8 +16,8 @@ public class Voiture {
     }
 
     public void accelerer() {
-        if (this.vitesse + VALEUR_ACCELERATION <= VITESSE_MAX) {
-            vitesse += VALEUR_ACCELERATION;
+        if (this.vitesse + ACCELERATION_VALUE <= MAX_SPEED) {
+            vitesse += ACCELERATION_VALUE;
             // afficher détails
             printDetails();
         } else {
@@ -26,14 +26,14 @@ public class Voiture {
     }
 
     private void printDetails(){
-        System.out.println("Modèle : " + this.modele);
-        System.out.println("Couleur : " + this.couleur);
+        System.out.println("Modèle : " + this.model);
+        System.out.println("Couleur : " + this.color);
         System.out.println("Vitesse actuelle : " + this.vitesse);
     }
 
     public void ralentir() {
-        if (vitesse - VALEUR_ACCELERATION >= 0) {
-            vitesse -= VALEUR_ACCELERATION;
+        if (vitesse - ACCELERATION_VALUE >= 0) {
+            vitesse -= ACCELERATION_VALUE;
             // afficher détails
             printDetails();
         } else {
