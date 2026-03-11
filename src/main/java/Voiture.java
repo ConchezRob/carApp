@@ -1,4 +1,6 @@
 public class Voiture {
+    public static final int VALEUR_ACCELERATION = 10;
+    public static final int VITESSE_MAX = 120;
     private String modele;
     private String couleur;
     private int vitesse;
@@ -14,8 +16,8 @@ public class Voiture {
     }
 
     public void accelerer() {
-        if (vitesse + 10 <= 120) {
-            vitesse += 10;
+        if (vitesse + VALEUR_ACCELERATION <= VITESSE_MAX) {
+            vitesse += VALEUR_ACCELERATION;
             // afficher détails
             System.out.println("Modèle : " + modele);
             System.out.println("Couleur : " + couleur);
@@ -26,8 +28,8 @@ public class Voiture {
     }
 
     public void ralentir() {
-        if (vitesse - 10 >= 0) {
-            vitesse -= 10;
+        if (vitesse - VALEUR_ACCELERATION >= 0) {
+            vitesse -= VALEUR_ACCELERATION;
             // afficher détails
             System.out.println("Modèle : " + modele);
             System.out.println("Couleur : " + couleur);
