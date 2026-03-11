@@ -1,4 +1,5 @@
 public class Conducteur {
+    public static final int AGE_LEGAL = 10;
     private final String nom;
     private final int age;
 
@@ -8,7 +9,7 @@ public class Conducteur {
     }
 
     public boolean estAdulte() {
-        return age >= 10;
+        return AGE_LEGAL <= age;
     }
 
     public void demarrerVoiture() {
