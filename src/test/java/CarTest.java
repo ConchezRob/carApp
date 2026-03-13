@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CarTest {
 
     private Car car;
+    private Driver driver;
     private final java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
     private final java.io.PrintStream originalOut = System.out;
 
@@ -12,6 +13,7 @@ public class CarTest {
     public void setUp() {
         car = new Car("Sedan", "Blue");
         System.setOut(new java.io.PrintStream(outContent));
+        driver = new Driver("John", 20);
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -40,7 +42,6 @@ public class CarTest {
 
     @Test
     public void testStartCar() {
-        Driver driver = new Driver("John", 20);
         car.startCar(driver);
         String output = outContent.toString();
         assertThat(output).contains("John starts the car.");
@@ -48,7 +49,6 @@ public class CarTest {
 
     @Test
     public void testStopCar() {
-        Driver driver = new Driver("John", 20);
         car.stopCar(driver);
         String output = outContent.toString();
         assertThat(output).contains("John stops the car.");
@@ -56,10 +56,23 @@ public class CarTest {
 
     @Test
     public void testChangeSpeed() {
-        Driver driver = new Driver("John", 20);
         car.changeSpeed(driver, 80);
         String output = outContent.toString();
         assertThat(output).contains("John changes the car speed to 80");
         assertThat(output).contains("Current speed: 80");
+    }
+
+    @Test
+    public void testMaxSpeed() {
+        car.changeSpeed(driver, 120);
+        car.accelerate();
+        assertThat(car.getSpeed()).isEqualTo(Car.MAX_SPEED);
+    }
+
+    @Test
+    public void testMinSpeed(){
+        car.changeSpeed(driver, 0);
+        car.slowDown();
+        assertThat(car.getSpeed()).isEqualTo(0);
     }
 }
