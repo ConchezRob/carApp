@@ -16,7 +16,7 @@ public class DriverTest {
     }
 
     @Test
-    public void should_be_adult() {
+    public void should_be_adult_if_age_is_20() {
         // GIVEN
         // Driver initialized in setUp
         // WHEN
@@ -26,7 +26,7 @@ public class DriverTest {
     }
 
     @Test
-    public void should_not_be_adult(){
+    public void should_not_be_adult_if_age_is_9() {
         // GIVEN
         // Driver2 initialized in setUp
         // WHEN
@@ -36,7 +36,7 @@ public class DriverTest {
     }
 
     @Test 
-    public void should_be_adult_boundary() {
+    public void should_be_adult_if_age_is_10() {
         // GIVEN
         // Driver3 initialized in setUp
         // WHEN

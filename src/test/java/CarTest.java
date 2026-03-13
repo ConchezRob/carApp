@@ -23,7 +23,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_accelerate() {
+    public void should_increase_speed_to_10_if_accelerated() {
         // GIVEN
         // Car initialized in setUp
         // WHEN
@@ -36,7 +36,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_slow_down() {
+    public void should_decrease_speed_to_0_if_slowed_down() {
         // GIVEN
         car.accelerate();
         outContent.reset();
@@ -48,7 +48,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_start_car() {
+    public void should_start_car_if_driver_is_adult() {
         // GIVEN
         // Car initialized in setUp
         // WHEN
@@ -59,7 +59,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_stop_car() {
+    public void should_stop_car_if_driver_stops_it() {
         // GIVEN
         // Car initialized in setUp
         // WHEN
@@ -70,7 +70,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_change_speed() {
+    public void should_change_speed_to_80_if_driver_sets_80() {
         // GIVEN
         // Car initialized in setUp
         // WHEN
@@ -82,7 +82,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_reach_max_speed() {
+    public void should_remain_at_max_speed_if_accelerating_at_max() {
         // GIVEN
         car.changeSpeed(driver, 120);
         // WHEN
@@ -92,7 +92,7 @@ public class CarTest {
     }
 
     @Test
-    public void should_reach_min_speed(){
+    public void should_remain_at_min_speed_if_slowing_down_at_zero(){
         // GIVEN
         car.changeSpeed(driver, 0);
         // WHEN
