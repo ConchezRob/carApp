@@ -21,7 +21,7 @@ public class CarTest {
     }
 
     @Test
-    public void testAccelerer() {
+    public void testAccelerate() {
         car.accelerate();
         String output = outContent.toString();
         assertThat(output).contains("Model: Sedan");
@@ -30,7 +30,7 @@ public class CarTest {
     }
 
     @Test
-    public void testRalentir() {
+    public void testSlowDown() {
         car.accelerate();
         outContent.reset();
         car.slowDown();
@@ -39,7 +39,7 @@ public class CarTest {
     }
 
     @Test
-    public void testDemarrerVoiture() {
+    public void testStartCar() {
         Driver driver = new Driver("John", 20);
         car.startCar(driver);
         String output = outContent.toString();
@@ -47,7 +47,7 @@ public class CarTest {
     }
 
     @Test
-    public void testArreterVoiture() {
+    public void testStopCar() {
         Driver driver = new Driver("John", 20);
         car.stopCar(driver);
         String output = outContent.toString();
@@ -55,7 +55,7 @@ public class CarTest {
     }
 
     @Test
-    public void testChangerVitesse() {
+    public void testChangeSpeed() {
         Driver driver = new Driver("John", 20);
         car.changeSpeed(driver, 80);
         String output = outContent.toString();
