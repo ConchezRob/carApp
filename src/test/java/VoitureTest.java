@@ -23,4 +23,23 @@ public class VoitureTest {
         voiture.ralentir();
         assertThat(voiture.getVitesse()).isEqualTo(0);
     }
+
+    @Test
+    public void testDemarrerVoiture() {
+        Voiture voiture = new Voiture("Sedan", "Bleu");
+        voiture.demarrerVoiture();
+    }
+
+    @Test
+    public void testArreterVoiture() {
+        Voiture voiture = new Voiture("Sedan", "Bleu");
+        voiture.arreterVoiture();
+    }
+
+    @Test
+    public void testChangerVitesse() {
+        Voiture voiture = new Voiture("Sedan", "Bleu");
+        voiture.changerVitesse(voiture, 80);
+        assertThat(voiture.getVitesse()).isEqualTo(80);
+    }
 }
