@@ -16,17 +16,33 @@ public class DriverTest {
     }
 
     @Test
-    public void testIsAdult() {
-        assertThat(driver1.isAdult()).isTrue();
+    public void should_be_adult() {
+        // GIVEN
+        // Driver initialized in setUp
+        // WHEN
+        boolean result = driver1.isAdult();
+        // THEN
+        assertThat(result).isTrue();
     }
 
     @Test
-    public void testIsNotAdult(){
-        assertThat(driver2.isAdult()).isFalse();
+    public void should_not_be_adult(){
+        // GIVEN
+        // Driver2 initialized in setUp
+        // WHEN
+        boolean result = driver2.isAdult();
+        // THEN
+        assertThat(result).isFalse();
     }
 
-    @Test void testIsAdultBoundary() {
-        assertThat(driver3.isAdult()).isTrue();
+    @Test 
+    public void should_be_adult_boundary() {
+        // GIVEN
+        // Driver3 initialized in setUp
+        // WHEN
+        boolean result = driver3.isAdult();
+        // THEN
+        assertThat(result).isTrue();
     }
     
 }

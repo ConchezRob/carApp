@@ -23,8 +23,12 @@ public class CarTest {
     }
 
     @Test
-    public void testAccelerate() {
+    public void should_accelerate() {
+        // GIVEN
+        // Car initialized in setUp
+        // WHEN
         car.accelerate();
+        // THEN
         String output = outContent.toString();
         assertThat(output).contains("Model: Sedan");
         assertThat(output).contains("Color: Blue");
@@ -32,47 +36,68 @@ public class CarTest {
     }
 
     @Test
-    public void testSlowDown() {
+    public void should_slow_down() {
+        // GIVEN
         car.accelerate();
         outContent.reset();
+        // WHEN
         car.slowDown();
+        // THEN
         String output = outContent.toString();
         assertThat(output).contains("Current speed: 0");
     }
 
     @Test
-    public void testStartCar() {
+    public void should_start_car() {
+        // GIVEN
+        // Car initialized in setUp
+        // WHEN
         car.startCar(driver);
+        // THEN
         String output = outContent.toString();
         assertThat(output).contains("John starts the car.");
     }
 
     @Test
-    public void testStopCar() {
+    public void should_stop_car() {
+        // GIVEN
+        // Car initialized in setUp
+        // WHEN
         car.stopCar(driver);
+        // THEN
         String output = outContent.toString();
         assertThat(output).contains("John stops the car.");
     }
 
     @Test
-    public void testChangeSpeed() {
+    public void should_change_speed() {
+        // GIVEN
+        // Car initialized in setUp
+        // WHEN
         car.changeSpeed(driver, 80);
+        // THEN
         String output = outContent.toString();
         assertThat(output).contains("John changes the car speed to 80");
         assertThat(output).contains("Current speed: 80");
     }
 
     @Test
-    public void testMaxSpeed() {
+    public void should_reach_max_speed() {
+        // GIVEN
         car.changeSpeed(driver, 120);
+        // WHEN
         car.accelerate();
+        // THEN
         assertThat(car.getSpeed()).isEqualTo(Car.MAX_SPEED);
     }
 
     @Test
-    public void testMinSpeed(){
+    public void should_reach_min_speed(){
+        // GIVEN
         car.changeSpeed(driver, 0);
+        // WHEN
         car.slowDown();
+        // THEN
         assertThat(car.getSpeed()).isEqualTo(0);
     }
 }
