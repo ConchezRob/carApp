@@ -2,18 +2,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ConducteurTest {
+public class DriverTest {
 
-    private Conducteur conducteur;
+    private Driver driver;
 
     @BeforeEach
     public void setUp() {
-        conducteur = new Conducteur("John", 20);
+        driver = new Driver("John", 20);
     }
 
     @Test
-    public void testEstAdulte() {
-        assertThat(conducteur.estAdulte()).isTrue();
+    public void testIsAdult() {
+        assertThat(driver.isAdult()).isTrue();
     }
     
 }

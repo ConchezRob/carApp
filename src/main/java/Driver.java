@@ -1,14 +1,14 @@
-public class Conducteur {
+public class Driver {
     public static final int LEGAL_AGE = 10;
     private final String name;
     private final int age;
 
-    public Conducteur(final String name, final int years) {
+    public Driver(final String name, final int age) {
         this.name = name;
-        this.age = years;
+        this.age = age;
     }
 
-    public boolean estAdulte() {
+    public boolean isAdult() {
         return LEGAL_AGE <= age;
     }
 

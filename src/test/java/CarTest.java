@@ -2,15 +2,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VoitureTest {
+public class CarTest {
 
-    private Voiture voiture;
+    private Car car;
     private final java.io.ByteArrayOutputStream outContent = new java.io.ByteArrayOutputStream();
     private final java.io.PrintStream originalOut = System.out;
 
     @BeforeEach
     public void setUp() {
-        voiture = new Voiture("Sedan", "Bleu");
+        car = new Car("Sedan", "Blue");
         System.setOut(new java.io.PrintStream(outContent));
     }
 
@@ -22,44 +22,44 @@ public class VoitureTest {
 
     @Test
     public void testAccelerer() {
-        voiture.accelerer();
+        car.accelerate();
         String output = outContent.toString();
-        assertThat(output).contains("Modèle : Sedan");
-        assertThat(output).contains("Couleur : Bleu");
-        assertThat(output).contains("Vitesse actuelle : 10");
+        assertThat(output).contains("Model: Sedan");
+        assertThat(output).contains("Color: Blue");
+        assertThat(output).contains("Current speed: 10");
     }
 
     @Test
     public void testRalentir() {
-        voiture.accelerer();
+        car.accelerate();
         outContent.reset();
-        voiture.ralentir();
+        car.slowDown();
         String output = outContent.toString();
-        assertThat(output).contains("Vitesse actuelle : 0");
+        assertThat(output).contains("Current speed: 0");
     }
 
     @Test
     public void testDemarrerVoiture() {
-        Conducteur conducteur = new Conducteur("John", 20);
-        voiture.demarrerVoiture(conducteur);
+        Driver driver = new Driver("John", 20);
+        car.startCar(driver);
         String output = outContent.toString();
-        assertThat(output).contains("John démarre la voiture.");
+        assertThat(output).contains("John starts the car.");
     }
 
     @Test
     public void testArreterVoiture() {
-        Conducteur conducteur = new Conducteur("John", 20);
-        voiture.arreterVoiture(conducteur);
+        Driver driver = new Driver("John", 20);
+        car.stopCar(driver);
         String output = outContent.toString();
-        assertThat(output).contains("John arrête la voiture.");
+        assertThat(output).contains("John stops the car.");
     }
 
     @Test
     public void testChangerVitesse() {
-        Conducteur conducteur = new Conducteur("John", 20);
-        voiture.changerVitesse(conducteur, 80);
+        Driver driver = new Driver("John", 20);
+        car.changeSpeed(driver, 80);
         String output = outContent.toString();
-        assertThat(output).contains("John change la vitesse de la voiture à 80");
-        assertThat(output).contains("Vitesse actuelle : 80");
+        assertThat(output).contains("John changes the car speed to 80");
+        assertThat(output).contains("Current speed: 80");
     }
 }
